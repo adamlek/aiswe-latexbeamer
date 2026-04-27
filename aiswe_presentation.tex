@@ -6,6 +6,10 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning,chains,matrix,calc,arrows,fit,shapes,backgrounds}
 
+\makeatletter
+\def\input@path{{style/}}
+\makeatother
+
 \title{\huge{Cool presentation}}
 
 \subtitle{Subtitle}
@@ -19,8 +23,21 @@
 
 \frame{\titlepage}
 
-\begin{frame}{Frame Title}
+\begin{frame}{Just a humble slide}
+
+Important information...
+
+\begin{enumerate}
+    \item Numbered list yo!
+    \item And another one!
+\end{enumerate}
     
+\end{frame}
+
+\begin{frame}{Embeddings!}
+    \begin{center}
+        \includegraphics[scale=0.1]{images/sent_embs_query.png}
+    \end{center}
 \end{frame}
 
 
