@@ -1,0 +1,68 @@
+\setbeamertemplate{navigation symbols}{}
+
+\RequirePackage{tikz}
+\RequirePackage{svg}
+
+% Fix SVG pics
+
+% Fix font
+\RequirePackage{fontspec}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme{serif} % default family is serif
+\setmainfont[BoldFont={GreycliffCF-Bold.otf}]{GreycliffCF-Regular.otf}
+%\newfontfamily\headingfont[]{GreycliffCF-Heavy.otf}
+\setmonofont{Inconsolata-Regular.ttf}
+
+\newlength{\marginedPaperWidth}{\paperwidth - 0.2cm}
+
+% title page
+\defbeamertemplate*{title page}{lucid}[1][]
+{
+  \vspace{2cm}
+  \usebeamerfont{title}\inserttitle\par
+  \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+  \vspace{3cm}
+%  \bigskip
+  \usebeamerfont{author}\insertauthor\par
+  \usebeamerfont{institute}\insertinstitute\par
+  \usebeamerfont{date}\insertdate\par
+  \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+
+\begin{tikzpicture}[remember picture,overlay]
+    %%% Change icon here for the beamer title page
+    % \node[anchor=south east] at (current page.south east) {\includegraphics[scale=0.05]{logo_yellow_1000.png}};
+    \node[anchor=south east] at (11.0, 0) {\includegraphics[scale=0.05]{darklogo.png}};
+    % \node[anchor=south east] at (current page.south east) {\includegraphics[scale=0.25]{logo_yellow_on_blue_CMYK.eps}};
+ \end{tikzpicture}
+}
+
+% Frame title
+\defbeamertemplate*{frametitle}{lucid}[1][]{
+  \vskip0.8cm%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.5cm]{frametitle}
+    \begin{tikzpicture}
+    \useasboundingbox(0,0) rectangle(\the\paperwidth,1.2);
+    {\usebeamercolor[fg]{frametitle-left}}
+    \fill[color=frametitle-left.fg] (0.2,0) rectangle(\the\marginedPaperWidth,1.2);    
+     \ifx\insertframesubtitle\@empty%
+        {\node[anchor=west] at (0.3,0.61){\usebeamerfont{frametitle}\insertframetitle};
+        }
+        \else%
+        {\node[anchor= west] at (0.2,0.81){\usebeamerfont{frametitle}\insertframetitle};%
+         \node[anchor= west] at (0.4,0.25){\usebeamerfont{framesubtitle}-\insertframesubtitle};}%
+        \fi
+    \end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+    %%% Change icon here for the title page
+    % \node[anchor=north east] at (current page.north east) {\includegraphics[scale=0.03]{logo_yellow_1000.png}};
+    \node[anchor=east] at (12.5, 1.2) {\includegraphics[scale=0.15]{darklogo.png}};
+    % \node[anchor=north east] at (current page.north east) {\includegraphics[scale=0.18]{logo_yellow_on_blue_CMYK.eps}};
+ \end{tikzpicture}
+\end{beamercolorbox}
+}
+
+
+
+
+
